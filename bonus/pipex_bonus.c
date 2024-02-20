@@ -33,7 +33,6 @@ void	first_middle_cmds(char *command, char **envp, t_bpipex *bpipe)
 		if (dup2(bpipe->fd[0], STDIN_FILENO) < 0)
 			ft_error_message("error from dup2 in f_m parnt!");
 		close(bpipe->fd[0]);
-		wait (NULL);
 	}
 }
 
@@ -55,7 +54,6 @@ void	last_cmd(int ac, char **av, char **env, t_bpipex *pipex)
 		close(pipex->fd[1]);
 		dup2(pipex->fd[0], STDIN_FILENO);
 		close(pipex->fd[0]);
-		wait (NULL);
 	}
 }
 
@@ -95,7 +93,6 @@ void	ft_here_doc(char **av)
 		if (dup2(fd[0], STDIN_FILENO) == -1)
 			ft_error_message("error message from dup2 in here_doc!");
 		close (fd[0]);
-		wait (NULL);
 	}
 }
 
