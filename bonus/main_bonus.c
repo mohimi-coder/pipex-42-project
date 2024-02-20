@@ -31,4 +31,6 @@ int	main(int ac, char **av, char **envp)
 	close (pipex->fileout);
 	close (0);
 	free(pipex);
+	while (wait(NULL) != -1)
+		;
 }
