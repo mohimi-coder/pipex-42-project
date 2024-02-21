@@ -33,6 +33,7 @@ void	first_middle_cmds(char *command, char **envp, t_bpipex *bpipe)
 		if (dup2(bpipe->fd[0], STDIN_FILENO) < 0)
 			ft_error_message("error from dup2 in f_m parnt!");
 		close(bpipe->fd[0]);
+		wait (NULL);
 	}
 }
 
