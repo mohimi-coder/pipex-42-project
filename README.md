@@ -69,10 +69,10 @@ P   = Pipe    (one pipe for two communicating programs)
 The following example dissects a `prg1 | prg2 | prg3` command line execution.
 
 ```bash
-$ git clone git@github.com:clemedon/Multipipe_tutor.git
-$ cd Multipipe_tutor/src
+$ git@github.com:mohimi-coder/pipex-42-project.git
+$ cd pipex-42-project
 $ make
-$ ./multipipe /bin/echo five "|" /bin/wc -c "|" /bin/cat -e
+$ ./pipex-42-project /bin/echo five "|" /bin/wc -c "|" /bin/cat -e
 ```
 
 Don't forget to frame `|` symbol with quotes or it will be interpreted by the
