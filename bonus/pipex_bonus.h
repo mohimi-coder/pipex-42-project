@@ -34,6 +34,7 @@ typedef struct s_bpipex
 	char	**chec;
 	char	*result;
 	int		i;
+	char	*limiter;
 }		t_bpipex;
 
 int		ft_open_files(char *av, int i);
