@@ -103,6 +103,8 @@ void	process_here_doc(int ac, char **av, t_bpipex *pipex)
 	{
 		pipex->i = 3;
 		pipex->fileout = ft_open_files(av[ac - 1], 1);
+		if (pipex->fileout < 0)
+			ft_error_message("Error from fileout in heredoc!");
 		if (ac < 6)
 			ft_error_message("Error from ac in here_doc!");
 		ft_here_doc(av);
@@ -111,7 +113,11 @@ void	process_here_doc(int ac, char **av, t_bpipex *pipex)
 	{
 		pipex->i = 2;
 		pipex->fileout = ft_open_files(av[ac - 1], 0);
+		if (pipex->fileout < 0)
+			ft_error_message("Error from fileout!");
 		pipex->filein = ft_open_files(av[1], 2);
+		if (pipex->filein < 0)
+			ft_error_message("Error from filin!");
 		if (dup2(pipex->filein, STDIN_FILENO) < 0)
 			ft_error_message("error from dup2 in process_heredoc!");
 		close (pipex->filein);
