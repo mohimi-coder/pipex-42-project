@@ -57,15 +57,16 @@ void	last_cmd(int ac, char **av, char **env, t_bpipex *pipex)
 	}
 }
 
-void	ft_is_there_herdoc(char **av, int fd[2])
+void	ft_is_there_herdoc(t_bpipex *pipex, int fd[2])
 {
 	char	*ret_line;
 
 	close(fd[0]);
 	while (1)
 	{
+		ft_putstr_fd("here_doc>", 1);
 		ret_line = get_next_line(0);
-		if (ft_strncmp(ret_line, av[2], ft_strlen(av[2])) == 0)
+		if (ft_strncmp(ret_line, pipex->limiter, ft_strlen(ret_line) == 0)
 		{
 			free(ret_line);
 			exit(0);
@@ -75,7 +76,7 @@ void	ft_is_there_herdoc(char **av, int fd[2])
 	}
 }
 
-void	ft_here_doc(char **av)
+void	ft_here_doc(t_bpipex *pipex)
 {
 	int		fd[2];
 	pid_t	pid;
@@ -86,7 +87,7 @@ void	ft_here_doc(char **av)
 	if (pid == -1)
 		exit(EXIT_FAILURE);
 	if (pid == 0)
-		ft_is_there_herdoc(av, fd);
+		ft_is_there_herdoc(pipex, fd);
 	else
 	{
 		close (fd[1]);
@@ -101,13 +102,14 @@ void	process_here_doc(int ac, char **av, t_bpipex *pipex)
 {
 	if (ft_strncmp(av[1], "here_doc", 8) == 0)
 	{
+		pipex->limiter = ft_strjoin(av[2], "\n");
 		pipex->i = 3;
 		pipex->fileout = ft_open_files(av[ac - 1], 1);
 		if (pipex->fileout < 0)
 			ft_error_message("Error from fileout in heredoc!");
 		if (ac < 6)
 			ft_error_message("Error from ac in here_doc!");
-		ft_here_doc(av);
+		ft_here_doc(pipex);
 	}
 	else
 	{
