@@ -23,10 +23,7 @@ int	main(int ac, char **av, char **envp)
 		ft_error_message("error from ac!");
 	process_here_doc(ac, av, pipex);
 	while (pipex->i < ac - 2)
-	{
-		dprintf(2, "%s\n", av[pipex->i]);
 		first_middle_cmds(av[pipex->i++], envp, pipex);
-	}
 	last_cmd(ac, av, envp, pipex);
 	close (pipex->fileout);
 	close (0);
