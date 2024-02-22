@@ -66,15 +66,11 @@ void	child_process2(char **av, t_pipex *xpipe, char **envp)
 
 void	pipex(int ac, char **av, t_pipex *xpipe, char **envp)
 {
-	int	p;
-
-	p = 0;
 	if (ac != 5)
 		ft_error_message(RED "error message from ac!" RESET);
 	if (!envp)
 		ft_error_message(YELLOW "error message from envp!" RESET);
-	p = pipe(xpipe->fd);
-	if (p == -1)
+	if (pipe(xpipe->fd) < 0);
 		ft_error_message(YELLOW "error message from pipe!" RESET);
 	xpipe->pid1 = fork();
 	if (xpipe->pid1 == -1)
