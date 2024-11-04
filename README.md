@@ -1,4 +1,10 @@
-# pipex-42-project
+<h1 align="center">pipex_42 _ 1337 </h1>
+<p align="center">
+  <a href="https://github.com//mohimi-coder/pipex">
+    <img src="https://raw.githubusercontent.com/mohimi-coder/1337_badges/refs/heads/master/pipexm.png" alt="42 Badge">
+  </a>
+</p>
+
 This project will let you discover in detail a UNIX mechanism that you already know by using it in your program!
 
 
