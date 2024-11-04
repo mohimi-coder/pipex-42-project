@@ -1,4 +1,4 @@
-<h1 align="center">pipex_42 _ 1337 </h1>
+<h1 align="center">pipex_42_1337 </h1>
 <p align="center">
   <a href="https://github.com//mohimi-coder/pipex">
     <img src="https://raw.githubusercontent.com/mohimi-coder/1337_badges/refs/heads/master/pipexm.png" alt="42 Badge">
